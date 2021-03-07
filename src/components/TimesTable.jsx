@@ -2,8 +2,6 @@ import React from 'react'
 
 const TimesTable = ({timesArray}) => {
 
-  console.log(timesArray);
-
   var times = timesArray.map((time, i) => 
     
     <div
