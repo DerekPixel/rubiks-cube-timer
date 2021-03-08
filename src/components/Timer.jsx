@@ -1,15 +1,16 @@
 import { useState, useEffect, useRef } from 'react'
 
-
-const Timer = ({updateTimesArray}) => {
+const Timer = ({updateTimesArray, inspection = Boolean}) => {
 
   const [display, setDisplay] = useState('00:00:00.00')
 
   var startTime = 0;
 
   var isTiming = useRef(false);
+  var isInspection = useRef(false);
   var elapsedTime = useRef(0);
   var timeInterval = useRef(0);
+  var inspectionTimeInterval = useRef(0);
 
   useEffect(() => {
     document.addEventListener('keyup', startAndStopTimerWithSpaceBar);
@@ -20,16 +21,51 @@ const Timer = ({updateTimesArray}) => {
   })
 
   const startAndStopTimerWithSpaceBar = (e) => {
-    if(e.key === ' ') {
-      if(isTiming.current === false) {
-        isTiming.current = true;
-        start();
-      } else if(isTiming.current === true) {
-        isTiming.current = false;
-        stop();
+    if(inspection) {
+      
+      if(e.key === ' ') {
+        if(isTiming.current === false) {
+          if(isInspection.current === false) {
+            isInspection.current = true
+            var inspectionTime = 5000;
+            var newStartTime = Date.now();
+            inspectionTimeInterval.current = setInterval(() => {
+              inspectionTime -= (Date.now() - newStartTime);
+              if(inspectionTime <= 0) {
+                clearInterval(inspectionTimeInterval.current);
+                isTiming.current = true;
+                start();
+              } else {
+                newStartTime = Date.now();
+                setDisplay(timeToString(inspectionTime));
+              }
+            }, 5);
+          } else if(isInspection.current === true) {
+            isInspection.current = false
+            clearInterval(inspectionTimeInterval.current);
+            setDisplay('00:00:00.00');
+          }
+        } else if(isTiming.current === true) {
+          isTiming.current = false;
+          isInspection.current = false
+          stop();
+        }
+      }
+
+    } else {
+      if(e.key === ' ') {
+        if(isTiming.current === false) {
+          isTiming.current = true;
+          start();
+        } else if(isTiming.current === true) {
+          isTiming.current = false;
+          stop();
+        }
       }
     }
   }
+
+  
 
   const start = () => {
     console.log('start');
