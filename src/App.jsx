@@ -1,7 +1,8 @@
 import './App.css';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Timer from './components/Timer';
 import TimesTable from './components/TimesTable';
+import Scrambler from './components/Scrambler';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
   }
   return (
     <div className="App">
+      <Scrambler />
       <Timer updateTimesArray={(string) => setTimesArray(handleTimesArray(string))} />
       <TimesTable timesArray={timesArray} />
     </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 
 const Timer = ({updateTimesArray}) => {
@@ -43,7 +43,7 @@ const Timer = ({updateTimesArray}) => {
   const stop = () => {
     console.log('stop');
     clearInterval(timeInterval.current);
-    updateTimesArray(timeToString(elapsedTime.current));
+    updateTimesArray(elapsedTime.current);
     elapsedTime.current = 0;
   }
 
