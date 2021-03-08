@@ -1,5 +1,5 @@
 
-const TimesTable = ({timesArray = Array}) => {
+const TimesTable = ({timesArray = Array, removeTime = Function}) => {
 
   const timeToString = (time) => {
     var diffInHr = time / 3600000;
@@ -34,6 +34,7 @@ const TimesTable = ({timesArray = Array}) => {
       key={i}
     >
       #{i+1}: {timeToString(time)}
+      <button onClick={() => removeTime(time)} >delete</button>
     </div>
 
   )
