@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const Timer = ({updateTimesArray, inspection = Boolean}) => {
+const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => {
 
   const [display, setDisplay] = useState('00:00:00.00')
 
@@ -27,7 +27,7 @@ const Timer = ({updateTimesArray, inspection = Boolean}) => {
         if(isTiming.current === false) {
           if(isInspection.current === false) {
             isInspection.current = true
-            var inspectionTime = 5000;
+            var inspectionTime = (inspectionDuration*1000);
             var newStartTime = Date.now();
             inspectionTimeInterval.current = setInterval(() => {
               inspectionTime -= (Date.now() - newStartTime);
