@@ -1,5 +1,5 @@
 
-const TimesTable = ({timesArray = Array, removeTime = Function}) => {
+const TimesTable = ({timesArray = Array, removeTime = Function, clearAllTimes = Function}) => {
 
   const timeToString = (time) => {
     var diffInHr = time / 3600000;
@@ -41,6 +41,7 @@ const TimesTable = ({timesArray = Array, removeTime = Function}) => {
 
   return (
     <div>
+      <button onClick={() => clearAllTimes()} >clear all times</button>
       {times}
       <div>avg: {timesArrayAverage()}</div>
       <div>best: {bestTime()}</div>
