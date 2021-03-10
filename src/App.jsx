@@ -6,15 +6,14 @@ import Scrambler from './components/Scrambler';
 
 function App() {
 
+  //STATES
   const [timesArray, setTimesArray] = useState([]);
   const [inspection, setInspection] = useState(false);
   const [inspectionDuration, setInspectionDuration] = useState(0);
 
+  //FUNCTIONS
   const makeNewlocalStorageObject = () => {
-
-    var Data = [
-    ]
-
+    var Data = []
     return JSON.stringify(Data);
   };
 
@@ -24,7 +23,6 @@ function App() {
     } else {
       return JSON.parse(window.localStorage.getItem('user-solve-times'));
     }
-
     return JSON.parse(window.localStorage.getItem('user-solve-times'));
   };
 
@@ -65,6 +63,8 @@ function App() {
 
   return (
     <div className="App">
+
+      <h1 className='title' >Rubik's Cube Timer</h1>
       
       <Scrambler />
 
