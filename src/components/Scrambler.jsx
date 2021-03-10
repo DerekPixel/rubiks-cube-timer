@@ -47,7 +47,7 @@ const Scrambler = () => {
 
   return (
     <div>
-      {scramble()}
+      Scramble: {scramble()}
     </div>
   )
 }

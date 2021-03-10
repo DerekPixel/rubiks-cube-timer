@@ -65,8 +65,6 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
     }
   }
 
-  
-
   const start = () => {
     console.log('start');
     startTime = Date.now();
@@ -96,7 +94,7 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
   }
 
   return (
-    <div>
+    <div className='timer' >
       {display}
     </div>
   )
