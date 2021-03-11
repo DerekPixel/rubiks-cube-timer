@@ -54,6 +54,7 @@ box-sizing: border-box;
 body {
   background-color: rgb(25, 25, 25);
   color: white;
+  display: flex;
 }
 
 .App {
