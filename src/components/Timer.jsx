@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => {
 
-  const [display, setDisplay] = useState('00:00:00.00')
+  const [display, setDisplay] = useState('00:00.00')
 
   var startTime = 0;
 
@@ -43,7 +43,7 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
           } else if(isInspection.current === true) {
             isInspection.current = false
             clearInterval(inspectionTimeInterval.current);
-            setDisplay('00:00:00.00');
+            setDisplay('00:00.00');
           }
         } else if(isTiming.current === true) {
           isTiming.current = false;
@@ -90,12 +90,15 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
     var ss = Math.floor(diffInSec).toString().padStart(2, "0");
     var diffInMs = (diffInSec - ss) * 100;
     var ms = Math.floor(diffInMs).toString().padStart(2, "0");
-    return `${hh}:${mm}:${ss}.${ms}`;
+    return `${mm}:${ss}.${ms}`;
   }
 
   return (
-    <div className='timer' >
-      {display}
+    <div>
+      <div className='timer' >
+        {display}
+      </div>
+      <p>Press the spacebar to start/stop the timer.</p>
     </div>
   )
 }

@@ -10,7 +10,7 @@ const TimesTable = ({timesArray = Array, removeTime = Function, clearAllTimes = 
     var ss = Math.floor(diffInSec).toString().padStart(2, "0");
     var diffInMs = (diffInSec - ss) * 100;
     var ms = Math.floor(diffInMs).toString().padStart(2, "0");
-    return `${hh}:${mm}:${ss}.${ms}`;
+    return `${mm}:${ss}.${ms}`;
   }
 
   const timesArrayAverage = () => {

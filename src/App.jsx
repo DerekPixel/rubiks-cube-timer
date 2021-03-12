@@ -58,15 +58,16 @@ function App() {
 
   useEffect(() => {
     setTimesArray(returnDataObjectIfExistsOrCreateDataObjectIfNot());
-    console.log('hello');
   }, [])
 
   return (
     <div className="App">
 
-      <h1 className='title' >Rubik's Cube Timer</h1>
-      
-      <Scrambler />
+      <header>
+        <h1 className='title' >Rubik's Cube Timer</h1>
+        
+        <Scrambler />
+      </header>
 
       <Timer 
         updateTimesArray={(string) => setTimesArray(addNewTimeToTimesArray(string))} 
@@ -74,29 +75,29 @@ function App() {
         inspectionDuration={inspectionDuration}
       />
 
-      <TimesTable 
-        timesArray={timesArray} 
-        removeTime={(time) => setTimesArray(removeTimeFromTimeArray(time))} 
-        clearAllTimes={() => clearAllTimes()}
-      />
-
-      <input 
-        type="checkbox" 
-        onClick={() => {switchInspection()}} 
-        defaultChecked={inspection} 
-      />
-
-      <input 
-        type="text" 
-        value={
-          inspectionDuration === 0 ? '' : inspectionDuration
-        } 
-        onChange={(event) => setInspectionDuration(event.target.value)} 
-        placeholder={
-          inspection ? "Time in seconds" : "Inspection is off"
-        }
-        disabled={!inspection}
-      />
+      <div className='timesAndSettings'>
+        <TimesTable
+          timesArray={timesArray}
+          removeTime={(time) => setTimesArray(removeTimeFromTimeArray(time))}
+          clearAllTimes={() => clearAllTimes()}
+        />
+        <input
+          type="checkbox"
+          onClick={() => {switchInspection()}}
+          defaultChecked={inspection}
+        />
+        <input
+          type="text"
+          value={
+            inspectionDuration === 0 ? '' : inspectionDuration
+          }
+          onChange={(event) => setInspectionDuration(event.target.value)}
+          placeholder={
+            inspection ? "Time in seconds" : "Inspection is off"
+          }
+          disabled={!inspection}
+        />
+      </div>
 
     </div>
   );

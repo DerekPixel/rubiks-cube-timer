@@ -46,7 +46,7 @@ const Scrambler = () => {
   }
 
   return (
-    <div>
+    <div className='scramble' >
       Scramble: {scramble()}
     </div>
   )
