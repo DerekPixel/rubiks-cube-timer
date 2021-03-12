@@ -52,9 +52,14 @@ box-sizing: border-box;
 /*#endregion*/
 
 body {
+  align-items: center;
   background-color: rgb(25, 25, 25);
   color: white;
   display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
 }
 
 .App {
@@ -63,4 +68,13 @@ body {
 
 .title {
   font-size: 50px;
+}
+
+.scramble {
+  font-size: 12px;
+}
+
+
+.timer {
+  font-size: 151px;
 }
