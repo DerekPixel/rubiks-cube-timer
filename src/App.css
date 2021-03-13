@@ -63,18 +63,151 @@ body {
 }
 
 .App {
-  background-color: rgb(40, 40, 40);
+  height: 100vh;
+  width: 100vw;
+}
+
+.twoColumns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+header {
+  margin: 0 auto;
+  text-align: center;
+  width: 450px;
 }
 
 .title {
   font-size: 50px;
+  border-bottom: 1px solid #892cdc;
+}
+
+.leftColumn {
+  background-color: rgb(40, 40, 40);
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  margin-right: 20px;
+  padding: 10px;
+  width: 600px;
 }
 
 .scramble {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 
 .timer {
+  border-bottom: 2px solid #892cdc;
+  border-top: 2px solid #892cdc;
   font-size: 151px;
+  font-weight: 600;
+  margin: 15px 0;
+}
+
+em {
+  color: #892cdc;
+}
+
+
+.timesAndSettings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearAll {
+  background-color: #892cdc;
+  color: white;
+  border: none;
+  margin-bottom: 10px;
+  transition: .4s ease;
+  width: 100%;
+}
+
+.clearAll:hover {
+  background-color: white;
+  color: #892cdc;
+  cursor: pointer;
+}
+
+.timesTable {
+  background-color: white;
+  color: black;
+  height: 175px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  width: 250px;
+  overflow-y:auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.times {
+  margin: 5px 0;
+}
+
+.bestTime {
+  color: #892cdc;
+}
+
+.worstTime {
+  color: orangered;
+}
+
+.deleteButton {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+  margin-left: 5px;
+  transition: .2s ease;
+}
+
+.deleteButton:hover {
+  background-color: #892cdc;
+  color: white;
+  cursor: pointer;
+}
+
+.stats {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.inspectionSwitch {
+  margin-bottom: 5px;
+}
+
+
+footer {
+  bottom: 5px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+}
+
+.footerItem {
+  margin: 0 10px;
+}
+
+footer a {
+  color: #892cdc;
 }
