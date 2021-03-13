@@ -98,7 +98,7 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
       <div className='timer' >
         {display}
       </div>
-      <p>Press the spacebar to start/stop the timer.</p>
+      <p>Press the <em>spacebar</em> to start/stop the timer.</p>
     </div>
   )
 }
