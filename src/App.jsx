@@ -66,38 +66,57 @@ function App() {
       <header>
         <h1 className='title' >Rubik's Cube Timer</h1>
         
-        <Scrambler />
+        
       </header>
 
-      <Timer 
-        updateTimesArray={(string) => setTimesArray(addNewTimeToTimesArray(string))} 
-        inspection={inspection}
-        inspectionDuration={inspectionDuration}
-      />
-
-      <div className='timesAndSettings'>
-        <TimesTable
-          timesArray={timesArray}
-          removeTime={(time) => setTimesArray(removeTimeFromTimeArray(time))}
-          clearAllTimes={() => clearAllTimes()}
-        />
-        <input
-          type="checkbox"
-          onClick={() => {switchInspection()}}
-          defaultChecked={inspection}
-        />
-        <input
-          type="text"
-          value={
-            inspectionDuration === 0 ? '' : inspectionDuration
-          }
-          onChange={(event) => setInspectionDuration(event.target.value)}
-          placeholder={
-            inspection ? "Time in seconds" : "Inspection is off"
-          }
-          disabled={!inspection}
-        />
+      <div className="twoColumns">
+        <div className='leftColumn' >
+          <Scrambler />
+          
+          <Timer
+            updateTimesArray={(string) => setTimesArray(addNewTimeToTimesArray(string))}
+            inspection={inspection}
+            inspectionDuration={inspectionDuration}
+          />
+        </div>
+        <div className='timesAndSettings'>
+          <TimesTable
+            timesArray={timesArray}
+            removeTime={(time) => setTimesArray(removeTimeFromTimeArray(time))}
+            clearAllTimes={() => clearAllTimes()}
+          />
+          <div className="settings">
+            <div className='inspectionSwitch'>
+              <label htmlFor="checkbox">Inspection On/Off</label>
+              <input
+                type="checkbox"
+                name='checkbox'
+                onClick={() => {switchInspection()}}
+                defaultChecked={inspection}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name='duration'
+                value={
+                  inspectionDuration === 0 ? '' : inspectionDuration
+                }
+                onChange={(event) => setInspectionDuration(event.target.value)}
+                placeholder={
+                  inspection ? "Time in seconds" : "Inspection is off"
+                }
+                disabled={!inspection}
+              />
+            </div>
+          </div>
+        </div>
       </div>
+
+      <footer>
+        <p className='footerItem'>Made by Derek Price</p>
+        <a className='footerItem' href="https://github.com/DerekPixel/rubiks-cube-timer">GitHub</a>
+      </footer>
 
     </div>
   );
