@@ -28,23 +28,46 @@ const TimesTable = ({timesArray = Array, removeTime = Function, clearAllTimes = 
     return timeToString(Math.min(...timesArray));
   }
 
+  const worstTime = () => {
+    if(timesArray.length === 0) return;
+    return timeToString(Math.max(...timesArray));
+  }
+
   var times = timesArray.map((time, i) => 
 
     <div
+      className={
+        timeToString(time) === bestTime() ? 
+          'times bestTime' : 
+        timeToString(time) === worstTime() ? 
+          'times worstTime' : 
+        'times'
+      }
       key={i}
     >
-      #{i+1}: {timeToString(time)}
-      <button onClick={() => removeTime(time)} >delete</button>
+      {i+1}: {timeToString(time)}
+      <button className='deleteButton' onClick={() => removeTime(time)} >X</button>
     </div>
 
   )
 
   return (
     <div>
-      <button onClick={() => clearAllTimes()} >clear all times</button>
-      {times}
-      <div>avg: {timesArrayAverage()}</div>
-      <div>best: {bestTime()}</div>
+      <button 
+        className='clearAll'
+        onClick={() => clearAllTimes()} 
+      >
+        Clear All Times
+      </button>
+
+      <div className='timesTable' >
+        {times}
+      </div>
+
+      <div className="stats">
+        <div>Avg: {timesArrayAverage() ? timesArrayAverage() : '00:00.00'}</div>
+        <div className='bestTime' >Best: {bestTime() ? bestTime() : '00:00.00'}</div>
+      </div>
     </div>
   )
 }
