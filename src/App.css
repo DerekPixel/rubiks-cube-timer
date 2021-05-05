@@ -51,6 +51,11 @@ box-sizing: border-box;
 }
 /*#endregion*/
 
+@font-face {
+  font-family: 'roboto-mono';
+  src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
+}
+
 body {
   align-items: center;
   background-color: rgb(25, 25, 25);
@@ -104,9 +109,11 @@ header {
 .timer {
   border-bottom: 2px solid #892cdc;
   border-top: 2px solid #892cdc;
-  font-size: 151px;
-  font-weight: 600;
+  font-size: 110px;
+  font-family: 'roboto-mono';
+  font-weight: 400;
   margin: 15px 0;
+  padding: 0.1em 0;
 }
 
 em {
