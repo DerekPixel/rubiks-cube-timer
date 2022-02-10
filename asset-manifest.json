@@ -1,22 +1,16 @@
 {
   "files": {
-    "main.css": "/rubiks-cube-timer/static/css/main.ce8bc55b.chunk.css",
-    "main.js": "/rubiks-cube-timer/static/js/main.2c29b38f.chunk.js",
-    "main.js.map": "/rubiks-cube-timer/static/js/main.2c29b38f.chunk.js.map",
-    "runtime-main.js": "/rubiks-cube-timer/static/js/runtime-main.63c25bf3.js",
-    "runtime-main.js.map": "/rubiks-cube-timer/static/js/runtime-main.63c25bf3.js.map",
-    "static/js/2.92a53e74.chunk.js": "/rubiks-cube-timer/static/js/2.92a53e74.chunk.js",
-    "static/js/2.92a53e74.chunk.js.map": "/rubiks-cube-timer/static/js/2.92a53e74.chunk.js.map",
-    "static/js/3.4092fa3d.chunk.js": "/rubiks-cube-timer/static/js/3.4092fa3d.chunk.js",
-    "static/js/3.4092fa3d.chunk.js.map": "/rubiks-cube-timer/static/js/3.4092fa3d.chunk.js.map",
+    "main.css": "/rubiks-cube-timer/static/css/main.5d6ce64d.css",
+    "main.js": "/rubiks-cube-timer/static/js/main.68a36480.js",
+    "static/js/787.28a4c9be.chunk.js": "/rubiks-cube-timer/static/js/787.28a4c9be.chunk.js",
+    "static/media/RobotoMono-VariableFont_wght.ttf": "/rubiks-cube-timer/static/media/RobotoMono-VariableFont_wght.2ccde177314ac34f20b8.ttf",
     "index.html": "/rubiks-cube-timer/index.html",
-    "static/css/main.ce8bc55b.chunk.css.map": "/rubiks-cube-timer/static/css/main.ce8bc55b.chunk.css.map",
-    "static/js/2.92a53e74.chunk.js.LICENSE.txt": "/rubiks-cube-timer/static/js/2.92a53e74.chunk.js.LICENSE.txt"
+    "main.5d6ce64d.css.map": "/rubiks-cube-timer/static/css/main.5d6ce64d.css.map",
+    "main.68a36480.js.map": "/rubiks-cube-timer/static/js/main.68a36480.js.map",
+    "787.28a4c9be.chunk.js.map": "/rubiks-cube-timer/static/js/787.28a4c9be.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.63c25bf3.js",
-    "static/js/2.92a53e74.chunk.js",
-    "static/css/main.ce8bc55b.chunk.css",
-    "static/js/main.2c29b38f.chunk.js"
+    "static/css/main.5d6ce64d.css",
+    "static/js/main.68a36480.js"
   ]
 }
