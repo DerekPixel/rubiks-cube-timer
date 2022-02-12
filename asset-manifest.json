@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/rubiks-cube-timer/static/css/main.5d6ce64d.css",
-    "main.js": "/rubiks-cube-timer/static/js/main.68a36480.js",
+    "main.css": "/rubiks-cube-timer/static/css/main.e0ad3214.css",
+    "main.js": "/rubiks-cube-timer/static/js/main.7f16dba2.js",
     "static/js/787.28a4c9be.chunk.js": "/rubiks-cube-timer/static/js/787.28a4c9be.chunk.js",
     "static/media/RobotoMono-VariableFont_wght.ttf": "/rubiks-cube-timer/static/media/RobotoMono-VariableFont_wght.2ccde177314ac34f20b8.ttf",
     "index.html": "/rubiks-cube-timer/index.html",
-    "main.5d6ce64d.css.map": "/rubiks-cube-timer/static/css/main.5d6ce64d.css.map",
-    "main.68a36480.js.map": "/rubiks-cube-timer/static/js/main.68a36480.js.map",
+    "main.e0ad3214.css.map": "/rubiks-cube-timer/static/css/main.e0ad3214.css.map",
+    "main.7f16dba2.js.map": "/rubiks-cube-timer/static/js/main.7f16dba2.js.map",
     "787.28a4c9be.chunk.js.map": "/rubiks-cube-timer/static/js/787.28a4c9be.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5d6ce64d.css",
-    "static/js/main.68a36480.js"
+    "static/css/main.e0ad3214.css",
+    "static/js/main.7f16dba2.js"
   ]
 }
