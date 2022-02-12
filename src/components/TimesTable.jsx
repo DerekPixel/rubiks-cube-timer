@@ -1,7 +1,7 @@
 
 const TimesTable = ({timesArray = Array, removeTime = Function, clearAllTimes = Function}) => {
 
-  const timeToString = (time) => {
+  function timeToString(time) {
     var diffInHr = time / 3600000;
     var hh = Math.floor(diffInHr).toString().padStart(2, "0");
     var diffInMin = (diffInHr - hh) * 60;
@@ -13,7 +13,7 @@ const TimesTable = ({timesArray = Array, removeTime = Function, clearAllTimes = 
     return `${mm}:${ss}.${ms}`;
   }
 
-  const timesArrayAverage = () => {
+  function timesArrayAverage() {
     if(timesArray.length === 0) return;
 
     var avg = 0;
@@ -23,12 +23,12 @@ const TimesTable = ({timesArray = Array, removeTime = Function, clearAllTimes = 
     return timeToString(avg/timesArray.length);
   }
 
-  const bestTime = () => {
+  function bestTime() {
     if(timesArray.length === 0) return;
     return timeToString(Math.min(...timesArray));
   }
 
-  const worstTime = () => {
+  function worstTime() {
     if(timesArray.length === 0) return;
     return timeToString(Math.max(...timesArray));
   }
