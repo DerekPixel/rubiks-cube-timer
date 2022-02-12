@@ -1,8 +1,9 @@
 import './App.css';
 import { useState, useEffect } from 'react'
-import Timer from './components/Timer';
-import TimesTable from './components/TimesTable';
-import Scrambler from './components/Scrambler';
+import Timer from './components/Timer.jsx';
+import TimesTable from './components/TimesTable.jsx';
+import Scrambler from './components/Scrambler.jsx';
+import Settings from './components/TimesAndSettings.jsx';
 
 function App() {
 
@@ -12,12 +13,12 @@ function App() {
   const [inspectionDuration, setInspectionDuration] = useState(0);
 
   //FUNCTIONS
-  const makeNewlocalStorageObject = () => {
+  function makeNewlocalStorageObject() {
     var Data = []
     return JSON.stringify(Data);
   };
 
-  const returnDataObjectIfExistsOrCreateDataObjectIfNot = () => {
+  function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
     if(window.localStorage.getItem('user-solve-times') === null) {
       window.localStorage.setItem('user-solve-times', makeNewlocalStorageObject());
     } else {
@@ -26,14 +27,14 @@ function App() {
     return JSON.parse(window.localStorage.getItem('user-solve-times'));
   };
 
-  const addNewTimeToTimesArray = (string) => {
+  function addNewTimeToTimesArray(string) {
     var timesArrayCopy = timesArray.slice();
     timesArrayCopy.push(string);
     window.localStorage.setItem('user-solve-times', JSON.stringify(timesArrayCopy));
     return timesArrayCopy;
   }
 
-  const removeTimeFromTimeArray = (time) => {
+  function removeTimeFromTimeArray(time) {
     var timesArrayCopy = timesArray.slice();
     var indexToRemove = timesArrayCopy.indexOf(time);
     timesArrayCopy.splice(indexToRemove, 1);
@@ -41,12 +42,12 @@ function App() {
     return timesArrayCopy;
   }
 
-  const clearAllTimes = () => {
+  function clearAllTimes() {
     setTimesArray([]); 
     window.localStorage.setItem('user-solve-times', JSON.stringify([]));
   }
 
-  const switchInspection = () => {
+  function switchInspection() {
     if(inspection) {
       setInspection(false);
     } else {
@@ -54,10 +55,13 @@ function App() {
     }
   }
 
-
+  function handleDeletingTimes(time) {
+    setTimesArray(removeTimeFromTimeArray(time))
+  }
 
   useEffect(() => {
     setTimesArray(returnDataObjectIfExistsOrCreateDataObjectIfNot());
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -65,51 +69,33 @@ function App() {
 
       <header>
         <h1 className='title' >Rubik's Cube Timer</h1>
-        
-        
       </header>
 
       <div className="twoColumns">
         <div className='leftColumn' >
-          <Scrambler />
-          
-          <Timer
-            updateTimesArray={(string) => setTimesArray(addNewTimeToTimesArray(string))}
-            inspection={inspection}
-            inspectionDuration={inspectionDuration}
-          />
+          <div className="scrambler-and-timer">
+            <Scrambler />
+            
+            <Timer
+              updateTimesArray={(string) => setTimesArray(addNewTimeToTimesArray(string))}
+              inspection={inspection}
+              inspectionDuration={inspectionDuration}
+            />
+          </div>
         </div>
         <div className='timesAndSettings'>
           <TimesTable
             timesArray={timesArray}
-            removeTime={(time) => setTimesArray(removeTimeFromTimeArray(time))}
-            clearAllTimes={() => clearAllTimes()}
+            removeTime={handleDeletingTimes}
+            clearAllTimes={clearAllTimes}
           />
-          <div className="settings">
-            <div className='inspectionSwitch'>
-              <label htmlFor="checkbox">Inspection On/Off</label>
-              <input
-                type="checkbox"
-                name='checkbox'
-                onClick={() => {switchInspection()}}
-                defaultChecked={inspection}
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                name='duration'
-                value={
-                  inspectionDuration === 0 ? '' : inspectionDuration
-                }
-                onChange={(event) => setInspectionDuration(event.target.value)}
-                placeholder={
-                  inspection ? "Time in seconds" : "Inspection is off"
-                }
-                disabled={!inspection}
-              />
-            </div>
-          </div>
+
+          <Settings
+            switchInspection={switchInspection}
+            inspection={inspection}
+            inspectionDuration={inspectionDuration}
+            setInspectionDuration={setInspectionDuration}
+          />
         </div>
       </div>
 
