@@ -56,84 +56,103 @@ box-sizing: border-box;
   src: url(./fonts/RobotoMono-VariableFont_wght.ttf);
 }
 
+:root {
+  font-family: sans-serif;
+}
+
+/* 
+================================
+Generic Elements
+================================
+*/
+
 body {
-  align-items: center;
   background-color: rgb(25, 25, 25);
   color: white;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  text-align: center;
 }
 
 .App {
-  height: 100vh;
-  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .twoColumns {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 100px 0;
 }
 
 header {
   margin: 0 auto;
   text-align: center;
-  width: 450px;
+  margin-bottom: 50px;
 }
 
 .title {
-  font-size: 50px;
+  font-size: calc(25px + 2vw);
   border-bottom: 1px solid #892cdc;
+  margin: 1rem 0;
 }
 
 .leftColumn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex: 3 2 66%;
+}
+
+.scrambler-and-timer {
+  text-align: center;
   background-color: rgb(40, 40, 40);
   display: flex;
   flex-direction: column;
-  height: 250px;
   justify-content: center;
-  margin-right: 20px;
-  padding: 10px;
-  width: 600px;
+  /* height: 200px; */
+  padding: 20px 10px;
+  width: 80%;
+  min-width: 300px;
 }
 
 .scramble {
   font-size: 14px;
+  line-height: 20px;
 }
-
 
 .timer {
   border-bottom: 2px solid #892cdc;
   border-top: 2px solid #892cdc;
-  font-size: 110px;
+  font-size: calc(40px + 5vw);
+  /* font-size: 50px; */
   font-family: 'roboto-mono';
   font-weight: 400;
   margin: 15px 0;
-  padding: 0.1em 0;
+  padding: 1rem 0;
 }
 
 em {
   color: #892cdc;
 }
 
-
 .timesAndSettings {
+  text-align: center;
   display: flex;
+  flex: 1 1 33%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 1rem;
 }
 
 .clearAll {
   background-color: #892cdc;
   color: white;
   border: none;
+  font-size: 18px;
   margin-bottom: 10px;
-  transition: .4s ease;
+  transition: background-color .4s ease, color .4s ease;
   width: 100%;
 }
 
@@ -146,16 +165,21 @@ em {
 .timesTable {
   background-color: white;
   color: black;
-  height: 175px;
+  height: 200px;
   margin-bottom: 10px;
   padding: 10px 0;
-  width: 250px;
+  width: 300px;
   overflow-y:auto;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
 .times {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  /* height: 50px; */
   margin: 5px 0;
 }
 
@@ -172,9 +196,14 @@ em {
   border: none;
   border-radius: 5px;
   color: black;
-  font-weight: 600;
+  font-size: 16px;
+  font-family: sans-serif;
+  /* line-height: 50px; */
+  /* height: 20px; */
+  /* font-weight: 600; */
   margin-left: 5px;
-  transition: .2s ease;
+  transition: background-color .2s ease, color .2s ease;
+  padding: 5px;
 }
 
 .deleteButton:hover {
@@ -184,7 +213,7 @@ em {
 }
 
 .stats {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 10px;
 }
 
@@ -204,10 +233,12 @@ label {
 
 
 footer {
-  bottom: 5px;
+  /* bottom: 5px; */
   display: flex;
   justify-content: center;
-  position: absolute;
+  /* position: absolute; */
+  margin-top: 50px;
+  margin-bottom: 5px;
   width: 100%;
 }
 
