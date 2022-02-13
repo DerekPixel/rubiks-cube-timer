@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => {
 
-  const [display, setDisplay] = useState('00:00.00')
+  const [display, setDisplay] = useState('00:00.00');
 
   var startTime = 0;
 
@@ -20,7 +20,7 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
     }
   })
 
-  const startAndStopTimerWithSpaceBar = (e) => {
+  function startAndStopTimerWithSpaceBar(e) {
     if(inspection) {
       
       if(e.key === ' ') {
@@ -65,7 +65,7 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
     }
   }
 
-  const start = () => {
+  function start() {
     console.log('start');
     startTime = Date.now();
     timeInterval.current = setInterval(() => {
@@ -74,14 +74,14 @@ const Timer = ({updateTimesArray, inspection = Boolean, inspectionDuration}) => 
     }, 5);
   }
 
-  const stop = () => {
+  function stop() {
     console.log('stop');
     clearInterval(timeInterval.current);
     updateTimesArray(elapsedTime.current);
     elapsedTime.current = 0;
   }
 
-  const timeToString = (time) => {
+  function timeToString(time) {
     var diffInHr = time / 3600000;
     var hh = Math.floor(diffInHr).toString().padStart(2, "0");
     var diffInMin = (diffInHr - hh) * 60;
