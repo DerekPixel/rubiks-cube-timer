@@ -83,19 +83,20 @@ function App() {
             />
           </div>
         </div>
-        <div className='timesAndSettings'>
-          <TimesTable
-            timesArray={timesArray}
-            removeTime={handleDeletingTimes}
-            clearAllTimes={clearAllTimes}
-          />
-
-          <Settings
-            switchInspection={switchInspection}
-            inspection={inspection}
-            inspectionDuration={inspectionDuration}
-            setInspectionDuration={setInspectionDuration}
-          />
+        <div className="rightColumn">
+          <div className='timesAndSettings'>
+            <TimesTable
+              timesArray={timesArray}
+              removeTime={handleDeletingTimes}
+              clearAllTimes={clearAllTimes}
+            />
+            <Settings
+              switchInspection={switchInspection}
+              inspection={inspection}
+              inspectionDuration={inspectionDuration}
+              setInspectionDuration={setInspectionDuration}
+            />
+          </div>
         </div>
       </div>
 
